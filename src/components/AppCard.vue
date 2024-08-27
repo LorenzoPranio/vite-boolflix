@@ -27,8 +27,8 @@ export default{
             <h2>Risultati dei Film:</h2>
             <ul>
                 <li v-for="item in store.resultsMovies" :key="item.id">
-                  <img :src="`http://image.tmdb.org/t/p/w500/${item.poster_path}`">
-                  {{ item.title || item.name }} ({{ item.original_title }}) ({{ item.vote_average }})
+                  <img :src="item.poster_path ? `https://image.tmdb.org/t/p/w342/${item.poster_path}` : `https://placehold.co/342x513?text=${item.title}`">
+                  {{ item.title }} ({{ item.original_title }}) ({{ item.vote_average }})
                   <span :class="`fi fi-${getFlag(item.original_language)}`"></span>
                   {{ item.poster_path }}
                 </li>
@@ -38,8 +38,8 @@ export default{
             <h2>Risultati delle Serie Tv:</h2>
             <ul>
                 <li v-for="item in store.resultsSeriesTV" :key="item.id">
-                  <img :src="`http://image.tmdb.org/t/p/w500/${item.poster_path}`">
-                  {{ item.title || item.name }} ({{ item.original_title }}) ({{ item.vote_average }})
+                  <img :src="item.poster_path ? `https://image.tmdb.org/t/p/w342/${item.poster_path}` : `https://placehold.co/342x513?text=${item.title}`">
+                  {{ item.name }} ({{ item.original_title }}) ({{ item.vote_average }})
                   <span :class="`fi fi-${getFlag(item.original_language)}`"></span>
                 </li>
             </ul>
