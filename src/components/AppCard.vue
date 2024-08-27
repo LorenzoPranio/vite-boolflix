@@ -33,40 +33,70 @@ export default{
 </script>
 
 <template>
-    <div>
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
         <div v-if="store.resultsMovies.length > 0">
-            <h2>Risultati dei Film:</h2>
-            <ul>
-                <li v-for="item in store.resultsMovies" :key="item.id">
-                  <img :src="item.poster_path ? `https://image.tmdb.org/t/p/w342/${item.poster_path}` : `https://placehold.co/342x513?text=${item.title}`">
-                  {{ item.title }} ({{ item.original_title }})
-                  <span :class="`fi fi-${getFlag(item.original_language)}`"></span>
-                  <span class="rating">
-                  <span v-for="n in 5" :key="n">
-                    <i :class="getStar(item.vote_average, n)"></i>
-                  </span>
-                  </span>
-                </li>
-            </ul>
-        </div>
-        <div v-if="store.resultsSeriesTV.length > 0">
-            <h2>Risultati delle Serie Tv:</h2>
-            <ul>
-                <li v-for="item in store.resultsSeriesTV" :key="item.id">
-                  <img :src="item.poster_path ? `https://image.tmdb.org/t/p/w342/${item.poster_path}` : `https://placehold.co/342x513?text=${item.title}`">
-                  {{ item.name }} ({{ item.original_title }})
-                  <span :class="`fi fi-${getFlag(item.original_language)}`"></span>
-                  <span class="rating">
-                  <span v-for="n in 5" :key="n">
-                    <i :class="getStar(item.vote_average, n)"></i>
-                  </span>
-                  </span>
-                </li>
-            </ul>
-        </div>
+          <h1 class="text-center">Risultati dei Film:</h1>
+          <div class="row">
+            <div class="col-3" v-for="item in store.resultsMovies" :key="item.id">
+              <div class="card" style="width: 18rem;">
+                <img :src="item.poster_path ? `https://image.tmdb.org/t/p/w342/${item.poster_path}` : `https://placehold.co/342x513?text=${item.title}`">
+                <div class="card-body">
+                  <h5 class="card-title">{{ item.title }} ({{ item.original_title }})</h5>
+                  <p class="card-text">{{ item.overview }}</p>
+                </div>
+                <div class="card-body">
+                  <div class="rating">
+                    <h5>Voto:</h5>
+                    <span v-for="n in 5" :key="n">
+                      <i :class="getStar(item.vote_average, n)"></i>
+                    </span>
+                  </div>
+                  <h5>Lingua originale:</h5>
+                    <span :class="`fi fi-${getFlag(item.original_language)}`"></span>
+                </div>
+              </div>
+            </div>  
+          </div>
+        </div> 
+      </div>
     </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div v-if="store.resultsSeriesTV.length > 0">
+            <h1 class="text-center">Risultati delle Serie Tv:</h1>
+            <div class="row">
+              <div class="col-3" v-for="item in store.resultsSeriesTV" :key="item.id">
+                  <div class="card" style="width: 18rem;">
+                  <img :src="item.poster_path ? `https://image.tmdb.org/t/p/w342/${item.poster_path}` : `https://placehold.co/342x513?text=${item.title}`">
+                  <div class="card-body">
+                    <h5 class="card-title">{{ item.name }} ({{ item.original_title }})</h5>
+                    <p class="card-text">{{ item.overview }}</p>
+                  </div>
+                  <div class="card-body">
+                    <div class="rating">
+                      <h5>Voto:</h5>
+                      <span v-for="n in 5" :key="n">
+                        <i :class="getStar(item.vote_average, n)"></i>
+                      </span>
+                    </div>
+                    <h5>Lingua originale:</h5>
+                      <span :class="`fi fi-${getFlag(item.original_language)}`"></span>
+                  </div>
+                  </div>
+                </div> 
+            </div>
+          </div>
+        </div>
+      </div> 
+    </div>
+  </div>
 </template>
 
-
 <style lang="scss">
+h5{
+  display: inline;
+}
 </style>
