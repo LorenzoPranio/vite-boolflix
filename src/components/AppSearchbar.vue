@@ -29,12 +29,30 @@ export default {
 
 <template>
     <div>
-        <input v-model="searchQuery" placeholder="Cerca un Film o una Serie TV..." />
-        <button @click="searchContent">Cerca</button>
+        <div class="searchbar">
+            <input v-model="searchQuery" placeholder="Cerca un Film o una Serie TV..." />
+            <button @click="searchContent"><i class="fab fa-sistrix"></i></button>
+        </div>
     </div>
 </template>
 
 
 <style lang="scss">
-
+.searchbar{
+    margin-top: 10px;
+}
+input{
+    border: none;
+    border: 1.5px solid gray;
+    width: 300px;
+    padding: 5px;
+}
+button{
+    border: none;
+    border: 1px solid gray;
+    padding: 5px;
+    i{
+        margin: 4px 10px;
+    }
+}
 </style>
