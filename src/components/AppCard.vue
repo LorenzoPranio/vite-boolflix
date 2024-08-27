@@ -43,8 +43,13 @@ export default{
               <div class="card" style="width: 18rem;">
                 <img :src="item.poster_path ? `https://image.tmdb.org/t/p/w342/${item.poster_path}` : `https://placehold.co/342x513?text=${item.title}`">
                 <div class="card-body">
-                  <h5 class="card-title">{{ item.title }} ({{ item.original_title }})</h5>
-                  <p class="card-text">{{ item.overview }}</p>
+                  <div class="card-title">
+                    <h5>Titolo:</h5><p>{{ item.title }}</p>
+                    <h5>Titolo Originale:</h5><p>{{ item.original_title }}</p>
+                  </div>
+                  <div class="card-text">
+                    <h5>Overview:</h5><p>{{ item.overview }}</p>
+                  </div>
                 </div>
                 <div class="card-body">
                   <div class="rating">
@@ -98,5 +103,6 @@ export default{
 <style lang="scss">
 h5{
   display: inline;
+  margin-right: 10px;
 }
 </style>
