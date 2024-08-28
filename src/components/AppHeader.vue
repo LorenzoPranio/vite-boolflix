@@ -23,12 +23,12 @@ export default{
 </template>
 
 
-<style lang="scss">
-h1{
-  color: rgb(151, 14, 14);
-  font-weight: bolder;
-}
+<style lang="scss" scoped>
 .bg-black{
   background-color: rgb(40, 40, 40);
+  h1{
+    color: rgb(151, 14, 14);
+    font-weight: bolder;
+  }
 }
 </style>
